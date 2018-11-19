@@ -8,7 +8,7 @@ namespace WebApplication.Models
 {
     public class ReadableRepository: IReadable
     {
-        private static readonly string nomeArquivoCSV = "Repositories\\books.csv";
+        private static readonly string nomeArquivoCSV = "Models\\Repositories\\books.csv";
 
         private ReadingList _toRead;
         private ReadingList _reading;
@@ -58,16 +58,16 @@ namespace WebApplication.Models
             _read = new ReadingList("Lidos", arrayLidos.ToArray());
         }
 
-        public ReadingList ToRead => _toRead;
-        public ReadingList Reading => _reading;
-        public ReadingList Read => _read;
+        public ReadingList ToRead() { return _toRead; }
+        public ReadingList Reading() { return _reading; }
+        public ReadingList Read() { return _read; }
 
-        public IEnumerable<Book> Todos => _toRead.Books.Union(_reading.Books).Union(_read.Books);
+        public IEnumerable<Book> allBooks() { return _toRead.Books.Union(_reading.Books).Union(_read.Books); }
 
         
         public void Include(Book book)
         {
-            var id = Todos.Select(l => l.Id).Max();
+            var id = allBooks().Select(l => l.Id).Max();
             using (var file = File.AppendText(ReadableRepository.nomeArquivoCSV))
             {
                 file.WriteLine($"para-ler;{id + 1};{book.Title};{book.Author}");

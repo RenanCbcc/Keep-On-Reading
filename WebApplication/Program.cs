@@ -15,24 +15,24 @@ namespace WebApplication
     {
         public static void Main(string[] args)
         {
-            //CreateWebHostBuilder(args).Build().Run();
-            var _repo = new ReadableRepository();
+            CreateWebHostBuilder(args).Build().Run();
 
-            ImprimeLista(_repo.ToRead);
-            ImprimeLista(_repo.Reading);
-            ImprimeLista(_repo.Read);
+            //var _repo = new ReadableRepository();
 
+            //ImprimeLista(_repo.ToRead);
+            //ImprimeLista(_repo.Reading);
+            //ImprimeLista(_repo.Read);
+            
         }
         static void ImprimeLista(ReadingList lista)
         {
             Console.WriteLine(lista);
         }
 
-        /*
+       
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
 
-    */
     }
 }

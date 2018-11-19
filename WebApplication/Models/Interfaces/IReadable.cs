@@ -7,10 +7,10 @@ namespace WebApplication.Models
 {
     public interface IReadable
     {
-        ReadingList ToRead { get; }
-        ReadingList Reading { get; }
-        ReadingList Read { get; }
-        IEnumerable<Book> Todos { get; }
+        ReadingList ToRead();
+        ReadingList Reading();
+        ReadingList Read();
+        IEnumerable<Book> allBooks();
         void Include(Book book);
     }
 }
