@@ -53,16 +53,16 @@ namespace WebApplication.Models
             _read = new ReadingList("Lidos", arrayLidos.ToArray());
         }
 
-        public ReadingList ToRead() { return _toRead; }
-        public ReadingList Reading() { return _reading; }
-        public ReadingList Read() { return _read; }
+        public ReadingList ToRead => _toRead; 
+        public ReadingList Reading => _reading; 
+        public ReadingList Read => _read; 
 
-        public IEnumerable<Book> allBooks() { return _toRead.Books.Union(_reading.Books).Union(_read.Books); }
+        public IEnumerable<Book> allBooks => _toRead.Books.Union(_reading.Books).Union(_read.Books);
 
         
         public void Include(Book book)
         {
-            var id = allBooks().Select(l => l.Id).Max();
+            var id = allBooks.Select(l => l.Id).Max();
             using (var file = File.AppendText(ReadableRepository.nomeArquivoCSV))
             {
                 file.WriteLine($"para-ler;{id + 1};{book.Title};{book.Author}");
