@@ -30,12 +30,7 @@ namespace WebApplication.Models
                         continue;
                     }
                     var infoBook = textBook.Split(';');
-                    var book = new Book
-                    {
-                        Id = Convert.ToInt32(infoBook[1]),
-                        Title = infoBook[2],
-                        Author = infoBook[3]
-                    };
+                    var book = new Book(Convert.ToInt32(infoBook[1]), infoBook[2], infoBook[3]);
                     switch (infoBook[0])
                     {
                         case "para-ler":

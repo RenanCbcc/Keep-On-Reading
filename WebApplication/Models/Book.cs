@@ -13,7 +13,20 @@ namespace WebApplication.Models
         public string Author { get; set; }
         public ReadingList List { get; set; }
 
-        public string Detalhes()
+        public Book(int id, string title, string author)
+        {
+            Id = id;
+            Title = title;
+            Author = author;
+        }
+
+        public Book(string title, string author)
+        {
+            Title = title;
+            Author = author;
+        }
+
+        public string Details()
         {
             var stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("Detalhes do Livro");
