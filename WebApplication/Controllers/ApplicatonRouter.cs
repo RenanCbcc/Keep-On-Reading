@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace WebApplication.Controllers
 {
-    public class Controller
+    public class ApplicatonRouter
     {
-        public static Task Routeing(HttpContext context)
+        public static Task DefaultRouteing(HttpContext context)
         {
             var className = Convert.ToString(context.GetRouteValue("class"));
             var methodName = Convert.ToString(context.GetRouteValue("method"));

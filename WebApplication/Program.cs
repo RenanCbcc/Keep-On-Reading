@@ -17,12 +17,7 @@ namespace WebApplication
         {
             CreateWebHostBuilder(args).Build().Run();
 
-            //var _repo = new ReadableRepository();
-
-            //ImprimeLista(_repo.ToRead);
-            //ImprimeLista(_repo.Reading);
-            //ImprimeLista(_repo.Read);
-            
+                     
         }
         static void ImprimeLista(ReadingList lista)
         {
